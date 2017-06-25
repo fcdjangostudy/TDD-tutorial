@@ -60,3 +60,8 @@ class NewVisitorTest(unittest.TestCase):
             response = home_page(request)
             expected_html = render_to_string('home.html')
             self.assertEqual(response.content.decode(), expected_html)
+
+        self.assertTrue(
+            any(row.text == '1: Buy peacock feathers' for row in rows),
+            "New to-do item did not appear in table"
+        )
